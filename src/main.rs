@@ -17,10 +17,6 @@ struct BmiResponse {
 }
 
 // Handler for the /bmi endpoint
-// async fn calculate_bmi(Json(payload): Json<BmiRequest>) -> Json<BmiResponse> {
-//     let bmi = payload.weight / (payload.height * payload.height);
-//     Json(BmiResponse { bmi: (bmi * 100.0).round() / 100.0 }) // round to 2 decimals
-// }
 async fn calculate_bmi(Json(payload): Json<BmiRequest>) -> Result<Json<BmiResponse>, (StatusCode, String)> {
     if payload.height <= 0.0 {
         return Err((StatusCode::BAD_REQUEST, "Height must be > 0".into()));
@@ -30,6 +26,7 @@ async fn calculate_bmi(Json(payload): Json<BmiRequest>) -> Result<Json<BmiRespon
     Ok(Json(BmiResponse { bmi: (bmi * 100.0).round() / 100.0 }))
 }
 
+// Handler for the / endpoint
 async fn health_check() -> impl IntoResponse {
     (StatusCode::OK, "BMI API is up and running")
 }
