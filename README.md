@@ -99,7 +99,6 @@ cargo run
 
 
 ### Local test with a web browser 
-{: .no_toc }
 
 `http://localhost:8080/`
 
@@ -110,7 +109,6 @@ cargo run
 This is `http`, NOT `https`.
 
 ### Local test with Curl
-{: .no_toc }
 
 `curl -X GET  http://localhost:8080/ `
 
@@ -120,7 +118,6 @@ This is `http`, NOT `https`.
 
 
 ### Local test with Curl
-{: .no_toc }
 
 `curl -X POST http://localhost:8080/bmi  -H "Content-Type: application/json" -d '{"height": 1.69, "weight": 71.0}'`
 
@@ -142,7 +139,6 @@ The aim of the game is
 1. Similarly, to have a repo on Heroku in order to provide to Heroku what is needed to build and run the API server. Once everything will be configured we will only have to "push" on Heroku, and let it work (build and run the server).
 
 ### Create a `Procfile` file
-{: .no_toc }
 
 * The `Procfile` must be at the root of the project and it explains how to build and start the app 
 * It is mandatory here since applications made with Rust do not follow a standard "buildpack"
@@ -153,7 +149,6 @@ The aim of the game is
 
 
 ### Create a `.slugignore` file
-{: .no_toc }
 
 * Similar to `.gitignore` this helps to send to Heroku only what is needed
 * At this point `.slugignore` should be similar to :
@@ -236,7 +231,6 @@ At the end of the build, select and copy the URL. Here : `https://rust-bmi-api-b
 
 
 ### Test with a web browser 
-{: .no_toc }
 
 Paste the copied URL in your browser (here, `https://rust-bmi-api-b4fd519caa8f.herokuapp.com/`). You should see :
 
@@ -244,10 +238,9 @@ Paste the copied URL in your browser (here, `https://rust-bmi-api-b4fd519caa8f.h
 <img src="./assets/img_07.webp" alt="" width="900" loading="lazy"/>
 </div>
 
-
+Note that now, this is https, NOT http.
 
 ### Test with Curl
-{: .no_toc }
 
 ```
 curl -X POST https://rust-bmi-api-b4fd519caa8f.herokuapp.com/bmi  -H "Content-Type: application/json" -d '{"height": 1.69, "weight": 71.0}' 
